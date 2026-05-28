@@ -202,7 +202,7 @@ resource "aws_rds_cluster_instance" "this" {
   identifier_prefix                     = var.instances_use_identifier_prefix ? try(coalesce(each.value.identifier_prefix, "${var.name}-${each.key}-")) : null
   instance_class                        = try(coalesce(each.value.instance_class, var.cluster_instance_class), null)
   monitoring_interval                   = try(coalesce(each.value.monitoring_interval, var.cluster_monitoring_interval), null)
-  monitoring_role_arn                   = try(aws_iam_role.rds_enhanced_monitoring[0].arn, each.value.monitoring_role_arn)
+  monitoring_role_arn                   = local.create_monitoring_role ? try(aws_iam_role.rds_enhanced_monitoring[0].arn, null) : try(coalesce(each.value.monitoring_role_arn, var.monitoring_role_arn), null)
   performance_insights_enabled          = try(coalesce(each.value.performance_insights_enabled, var.cluster_performance_insights_enabled), null)
   performance_insights_kms_key_id       = try(coalesce(each.value.performance_insights_kms_key_id, var.cluster_performance_insights_kms_key_id), null)
   performance_insights_retention_period = try(coalesce(each.value.performance_insights_retention_period, var.cluster_performance_insights_retention_period), null)
