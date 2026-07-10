@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [10.3.0](https://github.com/terraform-aws-modules/terraform-aws-rds-aurora/compare/v10.2.0...v10.3.0) (2026-07-10)
+
+### Features
+
+* Support Cluster `auto_minor_version_upgrade` ([#549](https://github.com/terraform-aws-modules/terraform-aws-rds-aurora/issues/549)) ([488c37f](https://github.com/terraform-aws-modules/terraform-aws-rds-aurora/commit/488c37f61c29aaaec6ad96f5ece0c47c14df9f93))
+
 ## [10.2.0](https://github.com/terraform-aws-modules/terraform-aws-rds-aurora/compare/v10.1.0...v10.2.0) (2026-01-08)
 
 ### Features
